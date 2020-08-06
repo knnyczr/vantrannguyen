@@ -11,8 +11,9 @@ class RootIndex extends React.Component {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
     const [author] = get(this, 'props.data.allContentfulPerson.edges')
-
+    console.log(this.props)
     return (
+      
       <Layout location={this.props.location}>
         <div style={{ background: '#fff' }}>
           <Helmet title={siteTitle} />
@@ -20,13 +21,13 @@ class RootIndex extends React.Component {
           <div className="wrapper">
             <h2 className="section-headline">Recent articles</h2>
             <ul className="article-list">
-              {posts.map(({ node }) => {
+              {/* {posts.map(({ node }) => {
                 return (
                   <li key={node.slug}>
                     <ArticlePreview article={node} />
                   </li>
                 )
-              })}
+              })} */}
             </ul>
           </div>
         </div>
