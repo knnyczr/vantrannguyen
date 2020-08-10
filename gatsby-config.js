@@ -25,10 +25,12 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Contentful starter',
+    title: 'Van Tran Nguyen',
+    description: `Van Tran Nguyen's Portfolio site`,
+    author: `@knnyczr`,
   },
-  pathPrefix: '/gatsby-contentful-starter',
   plugins: [
+    'gatsby-plugin-sass',
     'gatsby-transformer-remark',
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
@@ -36,6 +38,21 @@ module.exports = {
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images/`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `gatsby-starter-default`,
+        start_url: `/`,
+        icon: `src/images/favicon.png`, // This path is relative to the root of the site.
+      },
     },
   ],
 }

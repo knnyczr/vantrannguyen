@@ -4,7 +4,6 @@ import get from 'lodash/get'
 import { Helmet } from 'react-helmet'
 import styles from './blog.module.css'
 import Layout from '../components/layout'
-import ArticlePreview from '../components/article-preview'
 
 class BlogIndex extends React.Component {
   render() {
@@ -22,7 +21,7 @@ class BlogIndex extends React.Component {
               {posts.map(({ node }) => {
                 return (
                   <li key={node.slug}>
-                    <ArticlePreview article={node} />
+                    
                   </li>
                 )
               })}

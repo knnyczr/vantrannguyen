@@ -5,16 +5,15 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   return new Promise((resolve, reject) => {
-    const blogPost = path.resolve('./src/templates/blog-post.js')
+    const yearsPost = path.resolve('./src/templates/blog-post.js')
     resolve(
       graphql(
         `
           {
-            allContentfulBlogPost {
-              edges {
-                node {
-                  title
-                  slug
+            allContentfulYear(filter: { node_locale: { eq: "en-US" } }) {
+              edges{
+                node{
+                  theYear
                 }
               }
             }
@@ -25,14 +24,14 @@ exports.createPages = ({ graphql, actions }) => {
           console.log(result.errors)
           reject(result.errors)
         }
-
-        const posts = result.data.allContentfulBlogPost.edges
-        posts.forEach((post, index) => {
+        console.log(result)
+        const years = result.data.allContentfulBlogPost.edges
+        years.forEach((year, index) => {
           createPage({
-            path: `/blog/${post.node.slug}/`,
-            component: blogPost,
+            path: `/${year}/`,
+            component: yearsPost,
             context: {
-              slug: post.node.slug
+              slug: "post.node.slug"
             },
           })
         })
