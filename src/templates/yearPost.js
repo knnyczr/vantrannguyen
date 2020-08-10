@@ -7,13 +7,13 @@ import Layout from '../components/layout'
 
 export default class YearsTemplate extends Component {
   render() {
-    const post = get(this.props, 'data.contentfulBlogPost')
-    const siteTitle = get(this.props, 'data.site.siteMetadata.title')
+    // const post = get(this.props, 'data.contentfulBlogPost')
+    // const siteTitle = get(this.props, 'data.site.siteMetadata.title')
 
     return (
       <Layout location={this.props.location}>
         <div style={{ background: '#fff' }}>
-          <Helmet title={`${post.title} | ${siteTitle}`} />
+          {/* <Helmet title={`${post.title} | ${siteTitle}`} /> */}
 
         </div>
       </Layout>
@@ -21,12 +21,12 @@ export default class YearsTemplate extends Component {
   }
 }
 
-export const pageQuery = graphql`
-  query BlogPostBySlug {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`
+// export const pageQuery = graphql`
+//   query BlogPostBySlug {
+//     site {
+//       siteMetadata {
+//         title
+//       }
+//     }
+//   }
+// `

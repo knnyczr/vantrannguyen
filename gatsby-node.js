@@ -1,11 +1,10 @@
-const Promise = require('bluebird')
+// const Promise = require('bluebird')
 const path = require('path')
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
-
   return new Promise((resolve, reject) => {
-    const yearsPost = path.resolve('./src/templates/blog-post.js')
+    const yearsPost = path.resolve('./src/templates/yearPost.js')
     resolve(
       graphql(
         `
@@ -25,17 +24,36 @@ exports.createPages = ({ graphql, actions }) => {
           reject(result.errors)
         }
         console.log(result)
-        const years = result.data.allContentfulBlogPost.edges
-        years.forEach((year, index) => {
+        result.data.allContentfulYear.edges.forEach(year => {
           createPage({
-            path: `/${year}/`,
+            path: `/${year.node.theYear}/`,
             component: yearsPost,
-            context: {
-              slug: "post.node.slug"
-            },
           })
         })
       })
     )
   })
 }
+
+// exports.createPages = async function ({ actions, graphql }) {
+//   const data = await graphql(`
+//     { 
+//         allContentfulYear(filter: { node_locale: { eq: "en-US" } }) {
+//           edges{
+//             node{
+//               theYear
+//             }
+//           }
+//         }
+//       }
+//   `)
+//   // highlight-start
+//   data.allContentfulYear.edges.node.forEach(edge => {
+//     const slug = edge.node.theYear
+//     actions.createPage({
+//       path: slug,
+//       component: require.resolve(`./src/templates/yearsPost.js`),
+//     })
+//   })
+//   // console.log(data)
+// }

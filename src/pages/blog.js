@@ -8,7 +8,7 @@ import Layout from '../components/layout'
 class BlogIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
+    // const posts = get(this, 'props.data.allContentfulBlogPost.edges')
 
     return (
       <Layout location={this.props.location}>
@@ -18,13 +18,13 @@ class BlogIndex extends React.Component {
           <div className="wrapper">
             <h2 className="section-headline">Recent articles</h2>
             <ul className="article-list">
-              {posts.map(({ node }) => {
+              {/* {posts.map(({ node }) => {
                 return (
                   <li key={node.slug}>
                     
                   </li>
                 )
-              })}
+              })} */}
             </ul>
           </div>
         </div>
@@ -42,25 +42,25 @@ export const pageQuery = graphql`
         title
       }
     }
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
-      edges {
-        node {
-          title
-          slug
-          publishDate(formatString: "MMMM Do, YYYY")
-          tags
-          heroImage {
-            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
-          }
-          description {
-            childMarkdownRemark {
-              html
-            }
-          }
-        }
-      }
-    }
+    # allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
+    #   edges {
+    #     node {
+    #       title
+    #       slug
+    #       publishDate(formatString: "MMMM Do, YYYY")
+    #       tags
+    #       heroImage {
+    #         fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
+    #           ...GatsbyContentfulFluid_tracedSVG
+    #         }
+    #       }
+    #       description {
+    #         childMarkdownRemark {
+    #           html
+    #         }
+    #       }
+    #     }
+    #   }
+    # }
   }
 `

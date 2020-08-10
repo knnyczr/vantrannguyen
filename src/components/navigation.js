@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
-import './scss/nav.scss'
 import { Navbar, Nav, Button } from 'react-bootstrap'
+import get from 'lodash/get'
 
+import './scss/nav.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 
@@ -18,7 +19,7 @@ export default () => {
         }
       } 
 
-      allContentfulYear{
+      allContentfulYear(filter: { node_locale: { eq: "en-US" } }){
         edges{
           node{
             theYear
@@ -33,7 +34,7 @@ export default () => {
   const changeMenu = () => {
     setmenuCheck(!menuCheck)
   }
-  // console.log(data.allContentfulYear)
+  const years = data.allContentfulYear.edges
   return (
     <Navbar collapseOnSelect expand="*" variant="light">
     <Navbar.Brand href="#home">
@@ -50,8 +51,11 @@ export default () => {
     </Navbar.Toggle>
     <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className="mr-auto">
-        <Nav.Link href="#features">Features</Nav.Link>
-        <Nav.Link href="#pricing">Pricing</Nav.Link>
+        {
+          years.map((year, index) => (
+            <Link to={`/${year.node.theYear}/`}>{year.node.theYear}</Link>
+          ))
+        }
       </Nav>
       </Navbar.Collapse>
     </Navbar>
