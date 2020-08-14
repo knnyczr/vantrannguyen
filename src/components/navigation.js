@@ -19,10 +19,10 @@ export default () => {
         }
       } 
 
-      allContentfulYear(filter: { node_locale: { eq: "en-US" } }){
+      allContentfulYears(filter: { node_locale: { eq: "en-US" } }){
         edges{
           node{
-            theYear
+            yeartitle
           }
         }
       }
@@ -34,7 +34,7 @@ export default () => {
   const changeMenu = () => {
     setmenuCheck(!menuCheck)
   }
-  const years = data.allContentfulYear.edges
+  const years = data.allContentfulYears.edges
   return (
     <Navbar collapseOnSelect expand="*" variant="light">
     <Navbar.Brand href="#home">
@@ -53,7 +53,7 @@ export default () => {
       <Nav className="mr-auto">
         {
           years.map((year, index) => (
-            <Link to={`/${year.node.theYear}/`}>{year.node.theYear}</Link>
+            <Link key={index} to={`/${year.node.yeartitle}/`}>{year.node.yeartitle}</Link>
           ))
         }
       </Nav>

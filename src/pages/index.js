@@ -9,7 +9,7 @@ import '../components/scss/homepage.scss'
 export default class RootIndex extends Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const years = get(this, 'props.data.allContentfulYear.edges')
+    const years = get(this, 'props.data.allContentfulYears.edges')
     const logo = get(this, 'props.data.allFile.edges[0].node.publicURL')
     console.log(this)
     return (
@@ -29,7 +29,7 @@ export default class RootIndex extends Component {
                 <li
                   key={index}
                 >
-                    <Link to={`/${year.node.theYear}/`}>{year.node.theYear}</Link>
+                    <Link to={`/${year.node.yeartitle}/`}>{year.node.yeartitle}</Link>
                   </li>
               ))
             }
@@ -55,10 +55,10 @@ export const pageQuery = graphql`
         }
       } 
 
-    allContentfulYear(filter: { node_locale: { eq: "en-US" } }) {
+    allContentfulYears(filter: { node_locale: { eq: "en-US" } }) {
       edges{
         node{
-          theYear
+          yeartitle
         }
       }
     }

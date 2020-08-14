@@ -11,10 +11,24 @@ exports.createPages = ({ graphql, actions }) => {
         `
           {
 
-            allContentfulYear(filter: { node_locale: { eq: "en-US" } }) {
+            allContentfulYears(filter: { node_locale: { eq: "en-US" } }){
               edges{
                 node{
-                  theYear
+                  yeartitle
+                  year___work {
+                    id
+                    title
+                    medium
+                    description{
+                      description
+                    }
+                    images{
+                      id
+                    }
+                    heroImage {
+                      id
+                    }
+                  }
                 }
               }
             }
@@ -22,15 +36,17 @@ exports.createPages = ({ graphql, actions }) => {
             allContentfulYearWork(filter: { node_locale: { eq: "en-US" } }){
               edges{
                 node{
-                  contentful_id
-                  titleUrl
                   title
+                  titleUrl
                   medium
-                  heroImage {
+                  heroImage{
                     id
                   }
-                  year{
-                    theYear
+                  images{
+                    id
+                  }
+                  year {
+                    yeartitle
                   }
                 }
               }
@@ -43,25 +59,28 @@ exports.createPages = ({ graphql, actions }) => {
           console.log(result.errors)
           reject(result.errors)
         }
-        console.log(result)
-        result.data.allContentfulYear.edges.map(year => {
+
+
+        result.data.allContentfulYears.edges.map(yearData => {
           createPage({
-            path: `/${year.node.theYear}`,
+            path: `/${yearData.node.yeartitle}`,
             component: yearsPost,
             context: {
-              year: year
+              yearData: yearData
             }
           })
         })
+
         result.data.allContentfulYearWork.edges.map(work => {
           createPage({
-            path: `/${work.node.year.theYear}/${work.node.titleUrl}`, 
+            path: `/${work.node.year.yeartitle}/${work.node.titleUrl}`, 
             component: workPost,
             context: {
               work: work
             }
           })
         })
+
       })
     )
   })
