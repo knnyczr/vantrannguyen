@@ -15,20 +15,6 @@ exports.createPages = ({ graphql, actions }) => {
               edges{
                 node{
                   yeartitle
-                  year___work {
-                    id
-                    title
-                    medium
-                    description{
-                      description
-                    }
-                    images{
-                      id
-                    }
-                    heroImage {
-                      id
-                    }
-                  }
                 }
               }
             }
@@ -38,13 +24,6 @@ exports.createPages = ({ graphql, actions }) => {
                 node{
                   title
                   titleUrl
-                  medium
-                  heroImage{
-                    id
-                  }
-                  images{
-                    id
-                  }
                   year {
                     yeartitle
                   }
@@ -60,13 +39,13 @@ exports.createPages = ({ graphql, actions }) => {
           reject(result.errors)
         }
 
-
+        console.log(result)
         result.data.allContentfulYears.edges.map(yearData => {
           createPage({
             path: `/${yearData.node.yeartitle}`,
             component: yearsPost,
             context: {
-              yearData: yearData
+              year: yearData.node.yeartitle 
             }
           })
         })
@@ -76,7 +55,7 @@ exports.createPages = ({ graphql, actions }) => {
             path: `/${work.node.year.yeartitle}/${work.node.titleUrl}`, 
             component: workPost,
             context: {
-              work: work
+              workName: work.node.titleUrl
             }
           })
         })
