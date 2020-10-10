@@ -3,6 +3,7 @@ import { graphql, Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import Img from 'gatsby-image'
 import Layout from '../components/layout'
+import '../components/scss/yearPost.scss'
 
 export default function YearsTemplate(props) {
   console.log(props)
@@ -10,11 +11,11 @@ export default function YearsTemplate(props) {
   const siteTitle = props.data.site.siteMetadata.title
   const heroImages = props.data.allContentfulYears.edges[0].node.year___work
 
-  // console.log(heroImages)
   return (
     <Layout location={props.location}>
-      <div style={{ background: '#fff' }}>
+      <div className="yearWorkContainer">
         <Helmet title={`${year} | ${siteTitle}`} />
+        <h1>{year}</h1>
         {
           heroImages.map((work, index) => (
             <Link 
@@ -37,6 +38,12 @@ export const pageQuery = graphql`
         title
       }
     }
+  # query yearPostQuery {
+  #   site {
+  #     siteMetadata {
+  #       title
+  #     }
+  #   }
 
     allContentfulYears(filter: { node_locale: { eq: "en-US" }, yeartitle: { eq: $year } }){
       edges{

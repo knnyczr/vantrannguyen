@@ -1,20 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap');
 
 .homepage{
-    margin: 35% auto;
+    margin: 25% auto;
     padding: 10%;
+    .logo{
+        margin: 0 auto;
+        max-width: 30vw;
+    }
     ul{
         margin: 10% auto;
         width: 100%;
         padding: 0;
         list-style: none;
+        text-align: center;
         li{
-            width: 20%;
-            margin: 5% auto;
+            margin: 1% auto;
             text-decoration: none;
-            text-align: center;
             font-family: 'Open Sans', sans-serif;
             font-size: 1.20em;
+            a{
+                display: inline;
+            }
+        }
+        #dropdown-basic{
+            margin: 0 auto;
+        }
+        .dropdown.dropdownmenu{
+            .btn-light {
+                background-color: rgba(0, 0, 0, 0);
+                border-color: rgba(0, 0, 0, 0);
+            }
+            .show{
+                li.list-of-years{
+                    width: 30%;
+                    text-align: center;
+                    a {
+                        margin: 0 auto;
+                    }
+                }
+            }
         }
     }
 }

@@ -37,7 +37,7 @@ export default () => {
   const years = data.allContentfulYears.edges
   return (
     <Navbar collapseOnSelect expand="*" variant="light">
-    <Navbar.Brand href="#home">
+    <Navbar.Brand href="/">
       <img 
         src={data.allFile.edges[0].node.publicURL}
       />

@@ -6,6 +6,7 @@ exports.createPages = ({ graphql, actions }) => {
   return new Promise((resolve, reject) => {
     const yearsPost = path.resolve('./src/templates/yearPost.js')
     const workPost = path.resolve('./src/templates/workPost.js')
+    const curatorialPost = path.resolve('./src/templates/curatorialPost.js')
     resolve(
       graphql(
         `
@@ -31,6 +32,14 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
 
+            allContentfulCuratorialProjects(filter: { node_locale: { eq: "en-US" } }){
+              edges{
+                node{
+                  titleUrl
+                }
+              }
+            }
+
           }
         `
       ).then(result => {
@@ -39,7 +48,7 @@ exports.createPages = ({ graphql, actions }) => {
           reject(result.errors)
         }
 
-        console.log(result)
+        // console.log(result)
         result.data.allContentfulYears.edges.map(yearData => {
           createPage({
             path: `/${yearData.node.yeartitle}`,
@@ -56,6 +65,16 @@ exports.createPages = ({ graphql, actions }) => {
             component: workPost,
             context: {
               workName: work.node.titleUrl
+            }
+          })
+        })
+
+        result.data.allContentfulCuratorialProjects.edges.map(work => {
+          createPage({
+            path: `/curatorial/${work.node.titleUrl}`, 
+            component: curatorialPost, 
+            context: {
+              cPost: work.node.titleUrl
             }
           })
         })
