@@ -56,6 +56,11 @@ export default () => {
             <Link key={index} to={`/${year.node.yeartitle}/`}>{year.node.yeartitle}</Link>
           ))
         }
+        <Link
+          to={`/curatorial/`}
+        >
+          Curatorial
+        </Link>
       </Nav>
       </Navbar.Collapse>
     </Navbar>

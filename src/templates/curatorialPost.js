@@ -5,23 +5,44 @@ import Img from 'gatsby-image'
 import Layout from '../components/layout'
 
 
-// import '../components/scss/workPost.scss'
+import '../components/scss/curatorialPost.scss'
 
 export default function curatorialPost(props) {
 
   const baseObject = props.data.allContentfulCuratorialProjects.edges[0].node
   const siteTitle = props.data.site.siteMetadata.title
   const title = baseObject.title
+  const dates = baseObject.dates
+  const location = baseObject.location
+  const description = baseObject.description
+  const heroimage = baseObject.heroimage
+  const collection = baseObject.collection
 
 
 
   console.log(props)
   return (
     <Layout location={props.location}>
-      <div className="workPostContainer">
         <Helmet title={`${title} | ${siteTitle}`} />
-          hello from curatorial work
-      </div>
+        <div className="curatorial-post-wrapper">
+          <h1>{title}</h1>
+          <h4>{dates}</h4>
+          <h6>{location}</h6>
+          <p>{description}</p>
+          <Img 
+            alt={heroimage.title}
+            fluid={heroimage.fluid}
+          />
+          {
+            collection.map((work, index) => (
+              <Img
+                key={`${work.title} - ${index}`}
+                alt={work.title}
+                fluid={work.fluid}
+              />
+            ))
+          }
+        </div>
     </Layout> 
   )
 
@@ -40,12 +61,20 @@ export const pageQuery = graphql`
             node{
                 id
                 title
-                titleUrl
                 dates
                 location
                 description
                 heroimage{
-                    id
+                  title
+                  fluid{
+                    ...GatsbyContentfulFluid
+                  }
+                }
+                collection{
+                  title
+                  fluid{
+                    ...GatsbyContentfulFluid
+                  }
                 }
             }
         }

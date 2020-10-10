@@ -4,6 +4,8 @@ import { Helmet } from 'react-helmet'
 import Layout from '../components/layout'
 import Img from 'gatsby-image'
 
+import '../components/scss/curatorial.scss'
+
 export default function Curatorial(){
     const data = useStaticQuery(graphql`
         {
@@ -17,6 +19,7 @@ export default function Curatorial(){
                     node{
                         title
                         titleUrl
+                        dates
                         heroimage{
                             title
                             fluid{
@@ -32,16 +35,29 @@ export default function Curatorial(){
     const heroImages = data.allContentfulCuratorialProjects.edges
     return(
         <Layout>
-        <Helmet title={`Curatorial | ${siteTitle}`} />
-            <h1>Curatorial</h1>
-            {
-                heroImages.map((work, index) => (
-                    <Link to={`/curatorial/${work.node.titleUrl}`}>
-                        <Img alt={work.node.heroimage.title} fluid={work.node.heroimage.fluid} />
-                            <h2>{work.node.title}</h2>
-                    </Link>
-                ))
-            }
+            <div className="curatorial-wrapper"> 
+                <Helmet title={`Curatorial | ${siteTitle}`} />
+                <h1>Curatorial</h1>
+                {
+                    heroImages.map((work, index) => (
+                        <div 
+                            className="curatorial-work"
+                            key={index}
+                        >
+                            <Link 
+                                to={`/curatorial/${work.node.titleUrl}`}
+                            >
+                                <Img 
+                                    alt={work.node.heroimage.title} 
+                                    fluid={work.node.heroimage.fluid} 
+                                />
+                                <h2>{work.node.title}</h2>
+                                <h3>{work.node.dates}</h3>
+                            </Link>
+                        </div>
+                    ))
+                }
+            </div>
         </Layout>
     )
 }

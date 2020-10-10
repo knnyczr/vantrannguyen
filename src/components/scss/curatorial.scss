@@ -1,0 +1,19 @@
+.curatorial-wrapper{
+    margin: 10px; 
+    h1 {
+        font-family: Montserrat, sans-serif;
+        text-transform: uppercase;
+        font-size: 1.25rem;
+        text-align: center;
+    }
+    .curatorial-work{
+        margin: 20px 0px;
+        h2{
+            font-size: 1.5rem;
+            margin: 5px 0;
+        }
+        h3 {
+            font-size: .75rem;
+        }
+    }
+}
