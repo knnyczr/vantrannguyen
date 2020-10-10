@@ -1,6 +1,5 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
-import get from 'lodash/get'
 import { Helmet } from 'react-helmet'
 import { Dropdown } from 'react-bootstrap'
 import '../components/scss/homepage.scss'
@@ -82,7 +81,7 @@ export default function RootIndex() {
         </Dropdown>
 
         <li>
-          <Link to={`/${orderYears[0]}/`}>
+          <Link to={`/curatorial/`}>
             Curatorial Work
           </Link>
         </li>

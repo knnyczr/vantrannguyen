@@ -49,7 +49,7 @@ exports.createPages = ({ graphql, actions }) => {
         }
 
         // console.log(result)
-        result.data.allContentfulYears.edges.map(yearData => {
+       result.data.allContentfulYears.edges.map(yearData => {
           createPage({
             path: `/${yearData.node.yeartitle}`,
             component: yearsPost,
@@ -59,7 +59,7 @@ exports.createPages = ({ graphql, actions }) => {
           })
         })
 
-        result.data.allContentfulYearWork.edges.map(work => {
+       result.data.allContentfulYearWork.edges.map(work => {
           createPage({
             path: `/${work.node.year.yeartitle}/${work.node.titleUrl}`, 
             component: workPost,
