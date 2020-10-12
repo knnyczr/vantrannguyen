@@ -61,6 +61,11 @@ export default () => {
         >
           Curatorial
         </Link>
+        <Link
+          to={`/bio/`}
+        >
+          Bio
+        </Link>
       </Nav>
       </Navbar.Collapse>
     </Navbar>

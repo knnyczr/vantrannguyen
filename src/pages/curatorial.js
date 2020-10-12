@@ -53,6 +53,7 @@ export default function Curatorial(){
                                 />
                                 <h2>{work.node.title}</h2>
                                 <h3>{work.node.dates}</h3>
+                                <p>VIEW &#10230;</p>
                             </Link>
                         </div>
                     ))

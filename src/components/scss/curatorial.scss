@@ -9,11 +9,20 @@
     .curatorial-work{
         margin: 20px 0px;
         h2{
-            font-size: 1.5rem;
+            font-family: Montserrat, sans-serif;
+            font-size: 1rem;
             margin: 5px 0;
         }
         h3 {
             font-size: .75rem;
+            margin-bottom: 0; 
+        }
+        p {
+            margin-top: -5%;
+            margin-bottom: 10%;
+            display: block;
+            font-size: .75rem;
+            text-align: right;
         }
     }
 }

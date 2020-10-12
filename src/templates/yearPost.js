@@ -9,20 +9,25 @@ export default function YearsTemplate(props) {
   console.log(props)
   const year = props.pageContext.year
   const siteTitle = props.data.site.siteMetadata.title
-  const heroImages = props.data.allContentfulYears.edges[0].node.year___work
+  const works = props.data.allContentfulYears.edges[0].node.year___work
+  const medium = props.data.allContentfulYears.edges[0].node.year___work.medium
+  // const heroImages = props.data.allContentfulYears.edges[0].node.year___work
 
+  console.log(works)
   return (
     <Layout location={props.location}>
       <div className="yearWorkContainer">
         <Helmet title={`${year} | ${siteTitle}`} />
         <h1>{year}</h1>
         {
-          heroImages.map((work, index) => (
+          works.map((work, index) => (
             <Link 
-              key={work.heroImage.id + index}
+              key={work.id}
               to={`${work.titleUrl}`}
             >
               <Img alt={work.heroImage.description} fluid={work.heroImage.fluid} />
+              <h2>{work.title}</h2>
+              <p>VIEW &#10230;</p>
             </Link>
           ))
         }
@@ -49,7 +54,10 @@ export const pageQuery = graphql`
       edges{
         node{
           year___work{
+            id
             titleUrl
+            title
+            medium
             heroImage{
               id
               description

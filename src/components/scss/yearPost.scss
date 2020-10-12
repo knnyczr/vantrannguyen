@@ -1,11 +1,22 @@
 .yearWorkContainer { 
     margin: 10px;
     height: 100%;
+    
     h1{
         font-family: Montserrat, sans-serif;
         text-align: center;
     }
-    a > div {
-        margin-bottom: 5%; 
+    h2 {
+        font-family: Montserrat, sans-serif;
+        font-size: 1rem;
+        margin-top: 2%; 
+        margin-bottom: 0; 
+    }
+    p {
+        margin-top: -5%;
+        margin-bottom: 8%; 
+        display: block;
+        font-size: .75rem;
+        text-align: right;
     }
 }

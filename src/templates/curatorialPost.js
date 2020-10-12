@@ -59,7 +59,6 @@ export const pageQuery = graphql`
     allContentfulCuratorialProjects(filter: { node_locale: { eq: "en-US" }, titleUrl: { eq: $cPost } }){
         edges{
             node{
-                id
                 title
                 dates
                 location

@@ -1,9 +1,7 @@
 @font-face {
   font-family: "Avenir";
-  font-weight: 400;
   font-style: normal;
-  src: url("/avenir-400.woff2") format("woff2");
-  font-display: swap;
+  src: url("/Avenir.ttc") format("truetype");
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Roboto&display=swap');
@@ -21,14 +19,22 @@ body {
     font-size: 1rem;
   }
   p{
+    font-family: "Avenir", sans-serif;
     font-size: 1rem;
+    font-weight: 400;
   }
   h1{
+    font-family: Montserrat, sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
   }
   h4 {
+    font-family: "Avenir", sans-serif;
     font-size: 1rem;
+  }
+  h6 {
+    font-family: "Avenir", sans-serif;
+    font-size: .75rem;
   }
 }
 
