@@ -3,7 +3,7 @@ import { Link, useStaticQuery, graphql } from 'gatsby'
 import { Navbar, Nav, Button } from 'react-bootstrap'
 import get from 'lodash/get'
 
-import './scss/nav.scss'
+import './scss/navigation.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 

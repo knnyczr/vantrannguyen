@@ -1,28 +1,78 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'gatsby'
 import './scss/base.scss'
 import Container from './container'
 import Navigation from './navigation'
 import Footer from './footer'
+import Nav from './nav'
 
-class Template extends React.Component {
-  render() {
-    const { location, children } = this.props
-    let header
+import { graphql, useStaticQuery } from 'gatsby'
 
-    let rootPath = `/`
-    if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
-      rootPath = __PATH_PREFIX__ + `/`
+export default function Layout({children}) {
+
+  const [windowSize, setWindowSize] = useState({
+    width: 400,
+    height: 700,
+  });
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
     }
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, [])
 
-    return (
-      <Container>
+  let data = useStaticQuery(graphql`
+        query layout {
+            site {
+                siteMetadata {
+                title
+                }
+            }
+
+            allFile(filter: {name:{regex: "/logo/"}, extension: {regex: "/(svg)/"}}) {
+              edges {
+                node {
+                  publicURL
+                }
+              }
+            } 
+
+          allContentfulYears(filter: { node_locale: { eq: "en-US" } }) {
+            edges{
+              node{
+                yeartitle
+              }
+            }
+          }
+
+        }
+    `)
+    const years = data.allContentfulYears.edges
+    const siteTitle = data.site.siteMetadata.title
+    const logo = data.allFile.edges[0].node.publicURL
+  
+    // this is to put all the years in descending order. 
+    const orderYears = years.map((year) => year.node.yeartitle).slice().sort((a, b)=> b - a);
+
+  return (
+    <Container>
+      <main>
+      {
+        windowSize.width >= 768 ?
+        <Nav logo={logo} years={years} orderYears={orderYears}  /> 
+        :
         <Navigation />
-        {children}
-        <Footer />
-      </Container>
-    )
-  }
+      }
+      {children}
+      </main>
+      <Footer />
+    </Container>
+  )
 }
 
-export default Template

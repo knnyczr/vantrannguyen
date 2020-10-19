@@ -1,0 +1,14 @@
+.tabletDesktop{
+    width: 100vw;
+    // background-color: red;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    .deskNav {
+        height: 100vh;
+        border: solid red 1px;
+    }
+    section{
+
+        height: 100vh;
+    }
+}

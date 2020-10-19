@@ -20,3 +20,16 @@
         text-align: right;
     }
 }
+
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1440px) {
+    .yearWorkContainer {
+        .gatsby-image-wrapper{
+            max-height: 50vh;
+            div{
+                padding-bottom:0;
+            }
+        }
+    }
+}

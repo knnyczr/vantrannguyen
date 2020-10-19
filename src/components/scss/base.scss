@@ -62,3 +62,22 @@ img {
   padding: 5vmin 0;
 }
 
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1440px) 
+  {
+    main{
+      width: 100vw;
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      .deskNav {
+        margin: auto auto;
+        border: solid green 1px;
+      }
+      .deskNav + div {
+        overflow: scroll;
+        height: 90vh;
+        // border: solid red 1px;
+      }
+    }
+}
