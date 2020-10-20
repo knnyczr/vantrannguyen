@@ -67,3 +67,7 @@ public
 .contentful.json
 .env*
 !.env.example
+
+.DS_Store
+
+package-lock.json
