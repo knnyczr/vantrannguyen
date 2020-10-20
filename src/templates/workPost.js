@@ -73,13 +73,13 @@ export const pageQuery = graphql`
           }
           heroImage{
             title
-            fluid{
+            fluid(maxWidth: 3080, quality: 100){
               ...GatsbyContentfulFluid
             }
           }
           images{
             title
-            fluid{
+            fluid(maxWidth: 3080, quality: 100){
               ...GatsbyContentfulFluid
             }
           }

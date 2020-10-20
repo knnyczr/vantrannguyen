@@ -12,7 +12,7 @@ export default function bio() {
       name
       email
       image{
-        fluid{
+        fluid(maxWidth: 3080, quality: 100){
           ...GatsbyContentfulFluid
         }
       }

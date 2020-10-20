@@ -72,7 +72,7 @@ export const pageQuery = graphql`
             heroImage{
               id
               description
-              fluid{
+              fluid(maxWidth: 3080, quality: 100){
                 ...GatsbyContentfulFluid
               }
             }

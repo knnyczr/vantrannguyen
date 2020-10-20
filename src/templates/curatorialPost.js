@@ -71,7 +71,7 @@ export const pageQuery = graphql`
                 }
                 collection{
                   title
-                  fluid{
+                  fluid(maxWidth: 3080, quality: 100){
                     ...GatsbyContentfulFluid
                   }
                 }
