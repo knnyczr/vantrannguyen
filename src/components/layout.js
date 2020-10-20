@@ -66,7 +66,6 @@ export default function Layout({children}) {
     const orderYears = years.map((year) => year.node.yeartitle).slice().sort((a, b)=> b - a);
 
   const size = WindowSize()
-  console.log(size)
   return (
     <>
       <div className="wrapper">

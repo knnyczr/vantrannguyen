@@ -6,6 +6,9 @@
         font-size: 1.25rem;
         text-align: center;
     }
+    .gatsby-image-wrapper{
+        max-height: 80vh;
+    }
     .curatorial-work{
         margin: 20px 0px;
         h2{
@@ -23,6 +26,22 @@
             display: block;
             font-size: .75rem;
             text-align: right;
+        }
+        
+    }
+}
+
+
+@media only screen 
+and (min-width: 845px) {
+    .curatorial-wrapper{
+        .curatorial-work{
+            .gatsby-image-wrapper{
+                max-height: 50vh;
+            }
+            p{
+                margin-top: -3%;
+            }
         }
     }
 }

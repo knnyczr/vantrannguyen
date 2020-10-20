@@ -1,6 +1,7 @@
 .curatorial-post-wrapper{
     margin: 10px;
-    img {
+    .gatsby-image-wrapper {
+        max-height: 70vh;
         margin: 10px 0;
     }
 }

@@ -5,7 +5,7 @@
         text-transform: uppercase;
         font-size: 1.5rem;
     }
-   h4 {
+    h4 {
         font-style: italic;
     }
     p {
@@ -13,5 +13,8 @@
     }
     div {
         margin-bottom: 5px;
+    }
+    .gatsby-image-wrapper{
+        max-height: 60vh;
     }
 }

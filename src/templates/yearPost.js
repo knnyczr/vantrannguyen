@@ -23,12 +23,15 @@ export default function YearsTemplate(props) {
           <Helmet title={`${year} | ${siteTitle}`} />
           <h1>{year}</h1>
           <Masonry
-            breakpointCols={{
-              default: 4,
-              1100: 3,
-              768: 2,
-              767: 1
-            }}
+            breakpointCols={
+              {
+                default: 3,
+                1024: 2,
+                768: 2,
+                767: 1
+              }
+          
+          }
             className="my-masonry-grid"
             columnClassName="my-masonry-grid_column"
           >

@@ -48,6 +48,7 @@ export default function Curatorial(){
                                 to={`/curatorial/${work.node.titleUrl}`}
                             >
                                 <Img 
+                                    // imgStyle={{ objectFit: 'contain' }}
                                     alt={work.node.heroimage.title} 
                                     fluid={work.node.heroimage.fluid} 
                                 />
