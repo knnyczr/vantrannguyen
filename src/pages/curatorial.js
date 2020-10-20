@@ -22,7 +22,7 @@ export default function Curatorial(){
                         dates
                         heroimage{
                             title
-                            fluid{
+                            fluid(maxWidth: 3080, quality: 100){
                                 ...GatsbyContentfulFluid
                             }
                         }

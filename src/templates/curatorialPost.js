@@ -63,9 +63,9 @@ export const pageQuery = graphql`
                 dates
                 location
                 description
-                heroimage(maxWidth: 3080, quality: 100){
+                heroimage{
                   title
-                  fluid{
+                  fluid(maxWidth: 3080, quality: 100){
                     ...GatsbyContentfulFluid
                   }
                 }
