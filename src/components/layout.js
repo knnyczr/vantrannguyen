@@ -1,11 +1,12 @@
 import React, { useState, useEffect, createContext, useContext } from 'react'
-import './scss/base.scss'
-import Container from './container'
+import { graphql, useStaticQuery } from 'gatsby'
 import Navigation from './navigation'
+import Container from './container'
 import Footer from './footer'
 import Nav from './nav'
 
-import { graphql, useStaticQuery } from 'gatsby'
+
+import './scss/layout.scss'
 
 
 export function WindowSize(){
@@ -65,18 +66,20 @@ export default function Layout({children}) {
     const orderYears = years.map((year) => year.node.yeartitle).slice().sort((a, b)=> b - a);
 
   const size = WindowSize()
+  console.log(size)
   return (
-    <Container>
-      <main>
+    <>
+      <div className="wrapper">
       {
         size.width >= 768 ?
         <Nav logo={logo} years={years} orderYears={orderYears}  /> 
+        // <h1>in desktop</h1>
         :
         <Navigation />
       }
       {children}
-      </main>
+      </div>
       <Footer />
-    </Container>
+    </>
   )
 }

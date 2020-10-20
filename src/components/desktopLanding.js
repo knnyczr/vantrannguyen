@@ -21,7 +21,7 @@ export default function DesktopLanding({logo, years, orderYears}){
     const siteTitle = data.site.siteMetadata.title
 
     return(
-        <div className="tabletDesktop">
+        <div className="landingDesktop">
             <Helmet title={siteTitle} />
             <Nav logo={logo} years={years} orderYears={orderYears} />
             <section>

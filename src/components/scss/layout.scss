@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Roboto&display=swap');
+
+body {
+  // font-family: "Roboto", Tahoma, Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  line-height: 1.65;
+  color: #373F49;
+  background: rgb(244, 244, 244);
+  margin: 0;
+  font-size: 10px;
+  a {
+    color: currentColor;
+    font-size: 1rem;
+  }
+  p{
+    font-family: "Avenir", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+  }
+  h1{
+    font-family: Montserrat, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  h4 {
+    font-family: "Avenir", sans-serif;
+    font-size: 1rem;
+  }
+  h6 {
+    font-family: "Avenir", sans-serif;
+    font-size: .75rem;
+  }
+}
+
+footer {
+  display: flex;
+  width: 100%; 
+  height: 10vh;
+  justify-content: center;
+  p{
+    width: 10%;
+    margin: 0;
+    text-align: center;
+  }
+}
+
+
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1440px) 
+  and (-webkit-min-device-pixel-ratio: 1){
+    .wrapper{
+      width: 100vw;
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      // border: solid red 1px;
+      // height: 90vh;
+      margin-bottom: 10px;
+      .navClass ~ div {
+        // border: solid red 1px;
+        overflow: scroll;
+        height: 90vh;
+      }
+    }
+    footer{
+      height: 5vh;
+    }
+}

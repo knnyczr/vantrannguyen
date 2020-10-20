@@ -1,9 +1,9 @@
-.tabletDesktop{
+.landingDesktop{
     width: 100vw;
     // background-color: red;
     display: grid;
     grid-template-columns: 1fr 3fr;
-    .deskNav {
+    .navClass {
         // border: solid red 1px;
         padding: 10%;
         display: flex; 

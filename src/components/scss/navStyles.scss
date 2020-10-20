@@ -1,0 +1,58 @@
+.navClass{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    ul{
+        margin: 10% auto;
+        width: 100%;
+        padding: 0;
+        list-style: none;
+        text-align: center;
+        .logo{
+            // padding: 10%;
+            margin: 0 auto;
+            margin-bottom: 10px;
+            max-width: 40vw;
+        }
+        li{
+            margin: 1% auto;
+            text-decoration: none;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.20em;
+            a{
+                display: inline;
+            }
+        }
+        #dropdown-basic{
+            margin: 0 auto;
+        }
+        .dropdown.dropdownmenu{
+            .btn-light {
+                background-color: rgba(0, 0, 0, 0);
+                border-color: rgba(0, 0, 0, 0);
+            }
+            .show{
+                li.list-of-years{
+                    width: 30%;
+                    text-align: center;
+                    a {
+                        margin: 0 auto;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1440px) 
+  and (-webkit-min-device-pixel-ratio: 1){
+      .navClass{
+          ul{
+              .logo{
+                  max-width: 20vw;
+              }
+          }
+      }
+}

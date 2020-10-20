@@ -3,43 +3,4 @@
 .homepage{
     margin: 25% auto;
     padding: 10%;
-    ul{
-        .logo{
-            margin: 0 auto;
-            margin-bottom: 10px;
-            max-width: 40vw;
-        }
-        margin: 10% auto;
-        width: 100%;
-        padding: 0;
-        list-style: none;
-        text-align: center;
-        li{
-            margin: 1% auto;
-            text-decoration: none;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1.20em;
-            a{
-                display: inline;
-            }
-        }
-        #dropdown-basic{
-            margin: 0 auto;
-        }
-        .dropdown.dropdownmenu{
-            .btn-light {
-                background-color: rgba(0, 0, 0, 0);
-                border-color: rgba(0, 0, 0, 0);
-            }
-            .show{
-                li.list-of-years{
-                    width: 30%;
-                    text-align: center;
-                    a {
-                        margin: 0 auto;
-                    }
-                }
-            }
-        }
-    }
 }

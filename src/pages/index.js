@@ -22,7 +22,7 @@ export default function RootIndex() {
     }
     window.addEventListener("resize", handleResize);
     handleResize();
-    return () => window.removeEventListener("resize", handleResize);
+    // return () => window.removeEventListener("resize", handleResize);
   }, [])
 
   
@@ -60,7 +60,7 @@ export default function RootIndex() {
   // this is to put all the years in descending order. 
   const orderYears = years.map((year) => year.node.yeartitle).slice().sort((a, b)=> b - a);
 
-  console.log(windowSize)
+  console.log(windowSize.width)
 
   return(
     <>

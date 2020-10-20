@@ -2,11 +2,12 @@ import React from 'react';
 import { Link } from 'gatsby'
 import { Dropdown } from 'react-bootstrap'
 
+import './scss/navStyles.scss'
 
 
 export default function Nav({logo, years, orderYears}){
     return (
-        <div className="deskNav">
+        <div className="navClass">
             <ul>
               <Link to="/">  
                 <img 
