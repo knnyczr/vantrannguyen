@@ -34,12 +34,14 @@ export default function WorkTemplate(props) {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
           }
           <Img 
+            imgStyle={{ objectFit: 'contain' }}
             alt={heroImage.title}
             fluid={heroImage.fluid}
           />
           {
             images.map((img, idx)  => (
               <Img 
+                imgStyle={{ objectFit: 'contain' }}
                 alt={img.title}
                 key={idx}
                 fluid={img.fluid}

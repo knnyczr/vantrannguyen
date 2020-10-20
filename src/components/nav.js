@@ -7,12 +7,14 @@ import { Dropdown } from 'react-bootstrap'
 export default function Nav({logo, years, orderYears}){
     return (
         <div className="deskNav">
-            <img 
-              alt="logo"
-              className="logo"
-              src={logo}
-            />
             <ul>
+              <Link to="/">  
+                <img 
+                  alt="logo"
+                  className="logo"
+                  src={logo}
+                />
+              </Link>
               <li>
                 <Link to="/bio/">
                   BIO
@@ -26,7 +28,7 @@ export default function Nav({logo, years, orderYears}){
 
 
               <Dropdown className="dropdownmenu">
-                <Dropdown.Toggle variant="light" id="dropdown-basic">
+                <Dropdown.Toggle variant="flat">
                   Older Work
                 </Dropdown.Toggle>
                 <Dropdown.Menu>

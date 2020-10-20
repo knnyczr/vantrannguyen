@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'gatsby'
+import React, { useState, useEffect, createContext, useContext } from 'react'
 import './scss/base.scss'
 import Container from './container'
 import Navigation from './navigation'
@@ -8,8 +7,8 @@ import Nav from './nav'
 
 import { graphql, useStaticQuery } from 'gatsby'
 
-export default function Layout({children}) {
 
+export function WindowSize(){
   const [windowSize, setWindowSize] = useState({
     width: 400,
     height: 700,
@@ -27,6 +26,11 @@ export default function Layout({children}) {
     return () => window.removeEventListener("resize", handleResize);
   }, [])
 
+  return windowSize
+}
+
+
+export default function Layout({children}) {
   let data = useStaticQuery(graphql`
         query layout {
             site {
@@ -60,11 +64,12 @@ export default function Layout({children}) {
     // this is to put all the years in descending order. 
     const orderYears = years.map((year) => year.node.yeartitle).slice().sort((a, b)=> b - a);
 
+  const size = WindowSize()
   return (
     <Container>
       <main>
       {
-        windowSize.width >= 768 ?
+        size.width >= 768 ?
         <Nav logo={logo} years={years} orderYears={orderYears}  /> 
         :
         <Navigation />
@@ -75,4 +80,3 @@ export default function Layout({children}) {
     </Container>
   )
 }
-

@@ -34,6 +34,7 @@ export default function bio() {
       <div className="bio"> 
         <h1>{name}</h1>
         <Img 
+          imgStyle={{ objectFit: 'contain' }}
           alt={name}
           fluid={image.fluid}
         />

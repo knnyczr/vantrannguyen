@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import '../components/scss/homepage.scss'
 import Nav from '../components/nav'
 import DesktopLanding from '../components/desktopLanding'
+
+import '../components/scss/homepage.scss'
 
 export default function RootIndex() {
 

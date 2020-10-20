@@ -1,7 +1,6 @@
 .yearWorkContainer { 
     margin: 10px;
     height: 100%;
-    
     h1{
         font-family: Montserrat, sans-serif;
         text-align: center;
@@ -19,6 +18,17 @@
         font-size: .75rem;
         text-align: right;
     }
+    .my-masonry-grid {
+        display: -webkit-box; /* Not needed if autoprefixing */
+        display: -ms-flexbox; /* Not needed if autoprefixing */
+        display: flex;
+        margin-left: -20px; /* gutter size offset */
+        width: auto;
+      }
+      .my-masonry-grid_column {
+        padding-left: 30px; /* gutter size */
+        background-clip: padding-box;
+      }
 }
 
 @media only screen 
@@ -26,10 +36,7 @@
   and (max-device-width: 1440px) {
     .yearWorkContainer {
         .gatsby-image-wrapper{
-            max-height: 50vh;
-            div{
-                padding-bottom:0;
-            }
+            max-height: 80vh;
         }
     }
 }
