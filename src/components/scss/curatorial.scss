@@ -18,14 +18,15 @@
         }
         h3 {
             font-size: .75rem;
-            margin-bottom: 0; 
+            display: block;
+            margin-bottom: .25rem; 
         }
         p {
-            margin-top: -5%;
-            margin-bottom: 10%;
+            // margin-top: -5%;
+            // margin-bottom: 10%;
             display: block;
             font-size: .75rem;
-            text-align: right;
+            // text-align: right;
         }
         
     }
@@ -38,9 +39,6 @@ and (min-width: 845px) {
         .curatorial-work{
             .gatsby-image-wrapper{
                 max-height: 50vh;
-            }
-            p{
-                margin-top: -3%;
             }
         }
     }

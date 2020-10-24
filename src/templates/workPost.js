@@ -12,6 +12,7 @@ export default function WorkTemplate(props) {
 
   const title = baseObject.title
   const medium = baseObject.medium
+  const year = baseObject.year.yeartitle
   const video = baseObject.video
   const description = baseObject.description.description
   const heroImage = baseObject.heroImage
@@ -23,6 +24,7 @@ export default function WorkTemplate(props) {
       <div className="workPostContainer">
         <Helmet title={`${title} | ${siteTitle}`} />
           <h1>{title}</h1>
+          <h4>{year}</h4>
           <h4>{medium}</h4>
           <p>{description}</p>
           {
@@ -68,6 +70,9 @@ export const pageQuery = graphql`
           title
           medium
           video
+          year{
+            yeartitle
+          }
           description{
             description
           }
