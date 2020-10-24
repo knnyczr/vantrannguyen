@@ -64,15 +64,14 @@ export default function Layout({children}) {
   
     // this is to put all the years in descending order. 
     const orderYears = years.map((year) => year.node.yeartitle).slice().sort((a, b)=> b - a);
+    const size = WindowSize()
 
-  const size = WindowSize()
   return (
     <>
       <div className="wrapper">
       {
         size.width >= 768 ?
         <Nav logo={logo} years={years} orderYears={orderYears}  /> 
-        // <h1>in desktop</h1>
         :
         <Navigation />
       }

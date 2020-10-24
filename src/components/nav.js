@@ -34,7 +34,8 @@ export default function Nav({logo, years, orderYears}){
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                   {
-                    years.map((year, index) => (
+                    // slice is here to remove the first year in the array. to avoid repeating the current year on lines 25-27
+                    years.slice(1).map((year, index) => (
                       <li
                         key={index}
                         className="list-of-years"
