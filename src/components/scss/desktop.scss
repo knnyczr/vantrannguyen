@@ -1,8 +1,16 @@
 .landingDesktop{
     width: 100vw;
-    // background-color: red;
     display: grid;
     grid-template-columns: 1fr 3fr;
+    padding: 3%;
+    h1 {
+        font-size: 1rem;
+        margin: 0;
+    }
+    p {
+        display: block;
+        font-size: .75rem;
+    }
     .navClass {
         // border: solid red 1px;
         padding: 10%;
@@ -52,7 +60,15 @@
             }
         }
     }
-    section{
-        height: 100vh;
+    .my-masonry-grid {
+        display: -webkit-box; /* Not needed if autoprefixing */
+        display: -ms-flexbox; /* Not needed if autoprefixing */
+        display: flex;
+        margin-left: -20px; /* gutter size offset */
+        width: auto;
+    }
+    .my-masonry-grid_column {
+        padding-left: 30px; /* gutter size */
+        background-clip: padding-box;
     }
 }

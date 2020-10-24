@@ -60,7 +60,7 @@ export default function RootIndex() {
   // this is to put all the years in descending order. 
   const orderYears = years.map((year) => year.node.yeartitle).slice().sort((a, b)=> b - a);
 
-  console.log(windowSize.width)
+  // console.log(windowSize.width)
 
   return(
     <>
