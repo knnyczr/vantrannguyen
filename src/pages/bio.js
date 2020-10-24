@@ -12,7 +12,7 @@ export default function bio() {
       name
       email
       image{
-        fluid(maxWidth: 3080, quality: 100){
+        fluid(maxWidth: 900, quality: 100){
           ...GatsbyContentfulFluid
         }
       }
@@ -32,13 +32,15 @@ export default function bio() {
   return (
     <Layout>
       <div className="bio"> 
-        <h1>{name}</h1>
-        <Img 
-          imgStyle={{ objectFit: 'contain' }}
-          alt={name}
-          fluid={image.fluid}
-        />
-        <a href={`mailto:${email}`}>Email Me &#10230;</a>
+        <div className="contain">
+          <h1>{name}</h1>
+          <Img 
+            imgStyle={{ objectFit: 'contain' }}
+            alt={name}
+            fluid={image.fluid}
+          />
+          <a href={`mailto:${email}`}>Email Me &#10230;</a>
+        </div>
         <p dangerouslySetInnerHTML={{ __html: shortbio }} />
       </div>
     </Layout>
