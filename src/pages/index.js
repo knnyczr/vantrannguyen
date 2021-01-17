@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
+
 import Nav from '../components/nav'
 import DesktopLanding from '../components/desktopLanding'
+
+import {debounce} from '../components/funcs.js'
 
 import '../components/scss/homepage.scss'
 
@@ -14,16 +17,16 @@ export default function RootIndex() {
   });
 
   useEffect(() => {
-    function handleResize() {
+    const debounceHandleResize = debounce(function handleResize() {
       setWindowSize({
         width: window.innerWidth,
         height: window.innerHeight,
       });
-    }
-    window.addEventListener("resize", handleResize);
-    handleResize();
-    // return () => window.removeEventListener("resize", handleResize);
-  }, [])
+    }, 500)
+    window.addEventListener("resize", debounceHandleResize);
+    // handleResize();
+    return () => window.removeEventListener("resize", debounceHandleResize);
+  })
 
   
   let data = useStaticQuery(graphql`
@@ -61,7 +64,6 @@ export default function RootIndex() {
   const orderYears = years.map((year) => year.node.yeartitle).slice().sort((a, b)=> b - a);
 
   // console.log(windowSize.width)
-
   return(
     <>
       {

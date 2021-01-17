@@ -42,7 +42,7 @@ export default function DesktopLanding({logo, years, orderYears}){
     const siteTitle = data.site.siteMetadata.title
     const base = data.allContentfulYearWork.edges
 
-    console.log(base)
+    // console.log(base)
 
     return(
         <div className="landingDesktop">
@@ -50,8 +50,8 @@ export default function DesktopLanding({logo, years, orderYears}){
             <Nav logo={logo} years={years} orderYears={orderYears} />
             <Masonry
                 breakpointCols={{
-                    default: 3,
-                    1024: 3,
+                    default: 2,
+                    1024: 2,
                     768: 2,
                 }}
                 className="my-masonry-grid"

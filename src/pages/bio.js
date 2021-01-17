@@ -24,7 +24,7 @@ export default function bio() {
     }
   }
   `)
-  // console.log(data)
+  console.log(data)
   const name = data.contentfulPerson.name
   const email = data.contentfulPerson.email
   const shortbio = data.contentfulPerson.shortBio.childMarkdownRemark.html

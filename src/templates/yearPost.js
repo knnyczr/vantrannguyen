@@ -25,7 +25,7 @@ export default function YearsTemplate(props) {
           <Masonry
             breakpointCols={
               {
-                default: 3,
+                default: 2,
                 1024: 2,
                 768: 2,
                 767: 1

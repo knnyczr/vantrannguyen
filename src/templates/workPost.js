@@ -18,7 +18,7 @@ export default function WorkTemplate(props) {
   const heroImage = baseObject.heroImage
   const images = baseObject.images
 
-  console.log(props)
+  // console.log(props)
   return (
     <Layout location={props.location}>
       <div className="workPostContainer">

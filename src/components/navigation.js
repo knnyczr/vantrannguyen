@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import { Navbar, Nav, Button } from 'react-bootstrap'
-import get from 'lodash/get'
 
 import './scss/navigation.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
