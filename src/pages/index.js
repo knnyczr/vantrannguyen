@@ -5,8 +5,6 @@ import { Helmet } from 'react-helmet'
 import Nav from '../components/nav'
 import DesktopLanding from '../components/desktopLanding'
 
-import {debounce} from '../components/funcs.js'
-
 import '../components/scss/homepage.scss'
 
 export default function RootIndex() {
@@ -16,16 +14,28 @@ export default function RootIndex() {
     height: 700,
   });
 
+  // SRC: https://www.pluralsight.com/guides/re-render-react-component-on-window-resize
+function debounce(fn, ms) {
+  let timer
+  return () => {
+    clearTimeout(timer)
+    timer = setTimeout(() => {
+      timer = null
+      fn.apply(this, arguments)
+    }, ms)
+  };
+}
+
   useEffect(() => {
-    const debounceHandleResize = debounce(function handleResize() {
+    function handleResize() {
       setWindowSize({
         width: window.innerWidth,
         height: window.innerHeight,
       });
-    }, 500)
-    window.addEventListener("resize", debounceHandleResize);
+    }
+    window.addEventListener("resize", handleResize);
     // handleResize();
-    return () => window.removeEventListener("resize", debounceHandleResize);
+    return () => window.removeEventListener("resize", handleResize);
   })
 
   
