@@ -10,8 +10,8 @@ import '../components/scss/homepage.scss'
 export default function RootIndex() {
 
   const [windowSize, setWindowSize] = useState({
-    width: 400,
-    height: 700,
+    width: 768,
+    height: 1048,
   });
 
   // SRC: https://www.pluralsight.com/guides/re-render-react-component-on-window-resize
