@@ -27,15 +27,15 @@ function debounce(fn, ms) {
 }
 
   useEffect(() => {
-    function handleResize() {
+    const debouncedHandleResize = debounce(function handleResize() {
       setWindowSize({
         width: window.innerWidth,
         height: window.innerHeight,
       });
-    }
-    window.addEventListener("resize", handleResize);
-    // handleResize();
-    return () => window.removeEventListener("resize", handleResize);
+    }, 500)
+    window.addEventListener("resize", debouncedHandleResize);
+
+    return () => window.removeEventListener("resize", debouncedHandleResize);
   })
 
   
@@ -77,7 +77,7 @@ function debounce(fn, ms) {
   return(
     <>
       {
-        windowSize.width >= 768 ?
+        windowSize.width >= 767 ?
         (
           <DesktopLanding years={years} logo={logo} orderYears={orderYears} />
         ) : (
