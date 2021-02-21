@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import Img from 'gatsby-image'
@@ -18,6 +18,7 @@ export default function WorkTemplate(props) {
   const heroImage = baseObject.heroImage
   const images = baseObject.images
 
+  const [desc, setDesc] = useState(props.data.allContentfulYearWork.edges[0].node.description.childMarkdownRemark.html)
   // console.log(props)
   return (
     <Layout location={props.location}>
@@ -29,7 +30,7 @@ export default function WorkTemplate(props) {
           {/* <p>{description}</p> */}
           {
             description && 
-            <p key={props.uri} dangerouslySetInnerHTML={{ __html: description }}></p>
+            <p key={props.uri} dangerouslySetInnerHTML={{ __html: desc }}></p>
           }
           {
             video &&
