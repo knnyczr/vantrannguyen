@@ -18,7 +18,7 @@ export default function WorkTemplate(props) {
   const heroImage = baseObject.heroImage
   const images = baseObject.images
 
-  // console.log(props)
+  console.log(props)
   return (
     <Layout location={props.location}>
       <div className="workPostContainer">
@@ -27,7 +27,7 @@ export default function WorkTemplate(props) {
           <h4>{year}</h4>
           <h4>{medium}</h4>
           {/* <p>{description}</p> */}
-          <p dangerouslySetInnerHTML={{ __html: description }}/>
+          <p key={props.uri} dangerouslySetInnerHTML={{ __html: description }}/>
           {
             video &&
             <iframe 
