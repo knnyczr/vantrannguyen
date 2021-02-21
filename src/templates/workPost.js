@@ -19,7 +19,7 @@ export default function WorkTemplate(props) {
   const images = baseObject.images
 
   const [desc, setDesc] = useState(props.data.allContentfulYearWork.edges[0].node.description.childMarkdownRemark.html)
-  // console.log(props)
+  console.log(desc, props.uri)
   return (
     <Layout location={props.location}>
       <div className="workPostContainer">
@@ -30,7 +30,7 @@ export default function WorkTemplate(props) {
           {/* <p>{description}</p> */}
           {
             description && 
-            <p key={props.uri} dangerouslySetInnerHTML={{ __html: desc }}></p>
+            <div key={props.uri} dangerouslySetInnerHTML={{ __html: desc }} />
           }
           {
             video &&
