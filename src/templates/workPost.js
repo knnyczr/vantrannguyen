@@ -14,7 +14,7 @@ export default function WorkTemplate(props) {
   const medium = baseObject.medium
   const year = baseObject.year.yeartitle
   const video = baseObject.video
-  const description = baseObject.description.description
+  const description = baseObject.description.childMarkdownRemark.html
   const heroImage = baseObject.heroImage
   const images = baseObject.images
 
@@ -26,7 +26,8 @@ export default function WorkTemplate(props) {
           <h1>{title}</h1>
           <h4>{year}</h4>
           <h4>{medium}</h4>
-          <p>{description}</p>
+          {/* <p>{description}</p> */}
+          <p dangerouslySetInnerHTML={{ __html: description }}/>
           {
             video &&
             <iframe 
@@ -74,7 +75,9 @@ export const pageQuery = graphql`
             yeartitle
           }
           description{
-            description
+            childMarkdownRemark{
+              html
+            }
           }
           heroImage{
             title
