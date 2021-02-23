@@ -46,6 +46,7 @@ export default function WorkTemplate(props) {
             fluid={heroImage.fluid}
           />
           {
+            images && 
             images.map((img, idx)  => (
               <Img 
                 imgStyle={{ objectFit: 'contain' }}
